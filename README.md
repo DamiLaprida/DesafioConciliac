@@ -32,4 +32,16 @@ Capas involucradas:
   -API Rest
 
   -UNIT TEST and Integration Test con XUnit y MOQ
-	
+
+-------------------------------------------
+**PASO A PASO PARA EJECUTAR LA APLICACIÓN:**
+
+1) Abrir el archivo script.sql que se encuentra en la ruta \DesafioConciliac\ConciliacDesafio.WebAPP\ConciliacDesafio.Persistence\TableCreationScripts con SQL Server Management Studio.
+
+2) Una vez abierto verá todo el script generado para crear la tabla y la data de la misma.
+
+3) Borre la primera linea del script "USE [Tareas]".
+
+4) Cree una base de datos. Una vez creada en la parte superior izquierda verifique que este seleccionada su base de datos recién creada.
+
+5)
