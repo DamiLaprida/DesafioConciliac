@@ -44,4 +44,10 @@ Capas involucradas:
 
 4) Cree una base de datos. Una vez creada en la parte superior izquierda verifique que este seleccionada su base de datos recién creada.
 
-5)
+5) Ejecute el script generado.
+
+6) Ya tiene la tabla generada con su data correspondiente.
+
+7) Para ejecutar la solución abra Visual studio y en la parte superior media elija la opción ConciliacDesafio.WebAPP para ejecutar el sitio web.
+
+8) Si desea testear los endpoints por cuenta propia puede elegir la opción IIS Express para ejecutar Swagger.
