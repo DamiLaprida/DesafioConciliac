@@ -58,5 +58,6 @@ Capas involucradas:
 1)Opciones para ejecutar los test:
 
   a) Ejecutar todos los tests y ver si todos pasaron: en el navbar de Visual Studio elegir Test -> Run All Tests.
+  
   b) Para ejecutar e ir debugueando algun test en particular, puede elegir ubicar un breakpoint donde desee y en alguna parte del bloque de código del test haga 
      click derecho -> Debug Tests.
