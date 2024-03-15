@@ -195,5 +195,77 @@ namespace ConciliacDesafio.Tests
             Assert.IsType<BadRequestObjectResult>(response);
         }
 
+        [Fact]
+        public async Task CrearTareaAsync_Success_ReturnsOk()
+        {
+            // Arrange
+            var mockService = new Mock<ITareaService>();
+            var controller = new TareasController(mockService.Object);
+            var tareaDto = new TareaDTO { Titulo = "Titulo1", Descripcion = "Descripción 1" };
+
+            mockService.Setup(service => service.CrearTareaAsync(It.IsAny<TareaDTO>()))
+                       .ReturnsAsync(tareaDto);
+
+            // Act
+            var result = await controller.CrearTareaAsync(tareaDto);
+
+            // Assert
+            var createdResult = Assert.IsType<OkObjectResult>(result);
+            Assert.Equal(tareaDto, createdResult.Value);
+        }
+
+        [Fact]
+        public async Task CrearTareaAsync_CreatedSinTituloODescripcion_ReturnsBadRequest()
+        {
+            // Arrange
+            var mockService = new Mock<ITareaService>();
+            var controller = new TareasController(mockService.Object);
+            var tareaDto = new TareaDTO { };
+
+            mockService.Setup(service => service.CrearTareaAsync(It.IsAny<TareaDTO>()))
+                       .ReturnsAsync((TareaDTO)null);
+
+            // Act
+            var result = await controller.CrearTareaAsync(tareaDto);
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task BorrarTareaAsync_ValidId_ReturnsOk()
+        {
+            // Arrange
+            int validId = 1;
+            var mockService = new Mock<ITareaService>();
+            mockService.Setup(service => service.BorrarTareaAsync(validId))
+                       .ReturnsAsync(new TareaDTO { Id = validId }); // Simula una tarea borrada con éxito
+            var controller = new TareasController(mockService.Object);
+
+            // Act
+            var response = await controller.BorrarTareaAsync(validId);
+
+            // Assert
+            var okResult = Assert.IsType<OkObjectResult>(response);
+            var tareaBorrada = Assert.IsType<TareaDTO>(okResult.Value);
+            Assert.Equal(validId, tareaBorrada.Id);
+        }
+
+        [Fact]
+        public async Task BorrarTareaAsync_InvalidId_ReturnsBadRequest()
+        {
+            // Arrange
+            int invalidId = 2;
+            var mockService = new Mock<ITareaService>();
+            mockService.Setup(service => service.BorrarTareaAsync(invalidId))
+                       .ReturnsAsync((TareaDTO)null); // Simula una tarea no encontrada
+            var controller = new TareasController(mockService.Object);
+
+            // Act
+            var response = await controller.BorrarTareaAsync(invalidId);
+
+            // Assert
+            Assert.IsType<BadRequestObjectResult>(response);
+        }
     }
 }
