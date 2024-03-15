@@ -53,7 +53,7 @@
             url: `/api/tareas/Completada/${id}`,
             type: 'PUT',
             contentType: 'application/json',
-            data: JSON.stringify({ id: id }), // Puedes enviar más datos si es necesario
+            data: JSON.stringify({ id: id }), 
             success: function(data) {
                 MostrarMensaje('Tarea completada exitosamente', 'success');
                 console.log('Tarea completada:', data);
