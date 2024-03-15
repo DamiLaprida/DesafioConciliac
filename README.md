@@ -1,6 +1,6 @@
-Conciliac WEB APP
-
-ARQUITECTURA - Domain Driven Design
+CONCILIAC WEB APP
+-
+**ARQUITECTURA - Domain Driven Design**
 
 Capas involucradas: 
 
@@ -12,5 +12,24 @@ Capas involucradas:
   
   -Tests: se encuentran los test unitarios y de integración de toda la lógica de negocio.
 
-  
+-------------------------------------------
+  **TECNOLOGÍAS INVOLUCRADAS:**
+
+  -NET 6
+
+  -C#
+
+  -MVC
+
+  -SQL Server
+
+  -Entity Framework Core
+
+  -Razor Pages
+
+  -Bootstrap
+
+  -API Rest
+
+  -UNIT TEST and Integration Test con XUnit y MOQ
 	
